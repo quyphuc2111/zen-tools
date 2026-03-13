@@ -33,7 +33,7 @@ const TOOLS = [
     description: 'Trình tạo file README.md chuyên nghiệp và tương tác cho dự án mã nguồn mở.',
     icon: FileText,
     path: '/zenreadme',
-    comingSoon: true,
+    active: true,
   }
 ];
 

@@ -17,6 +17,7 @@
 
 | Tool | Mô tả | Trạng thái |
 |------|--------|------------|
+| **ZenType** | Game luyện tốc độ gõ code theo snippet với chế độ ngôn ngữ, độ khó, timer, combo và bảng kết quả rank. | ✅ Hoạt động |
 | **ZenShot** | Tạo ảnh code snippet tuyệt đẹp với syntax highlight, nhiều theme và khung cửa sổ tùy chỉnh. Hỗ trợ xuất PNG, JPEG, SVG, WEBP. | ✅ Hoạt động |
 | **ZenMock** | Tạo mockup thiết bị ấn tượng cho ảnh chụp màn hình ứng dụng. | 🔜 Sắp ra mắt |
 | **ZenReadme** | Trình tạo file README.md chuyên nghiệp và tương tác cho dự án mã nguồn mở. | 🔜 Sắp ra mắt |
@@ -62,7 +63,8 @@ npm run clean     # Xóa thư mục dist
 src/
 ├── pages/          # Trang chính (Home)
 ├── tools/          # Các công cụ
-│   └── zenshot/    # ZenShot - Code snippet image generator
+│   ├── zenshot/    # ZenShot - Code snippet image generator
+│   └── zentyping/  # ZenType - Arcade code typing game
 ├── lib/            # Utilities
 ├── App.tsx         # Router setup
 └── main.tsx        # Entry point

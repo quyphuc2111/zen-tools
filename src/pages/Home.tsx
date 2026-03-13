@@ -1,8 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Plus, Monitor, ImageIcon, FileText, LayoutTemplate } from 'lucide-react';
+import { ArrowRight, Plus, Monitor, ImageIcon, FileText, LayoutTemplate, Keyboard } from 'lucide-react';
 
 const TOOLS = [
+  {
+    id: 'zentyping',
+    name: 'ZENTYPE',
+    description: 'Game code typing test kiểu arcade: gõ nhanh, giữ combo, leo rank.',
+    icon: Keyboard,
+    path: '/zentyping',
+    active: true,
+  },
   {
     id: 'zenshot',
     name: 'ZENSHOT',
@@ -106,8 +114,8 @@ export const Home = () => {
 
         {/* Right Column: Big Cards */}
         <div className="lg:col-span-4 flex flex-col gap-6">
-          {/* Dark Card - ZenShot */}
-          <Link to="/zenshot" className="bg-[#111] rounded-[2.5rem] p-8 text-[#F4F0EA] relative overflow-hidden flex flex-col justify-between group cursor-pointer hover:shadow-2xl transition-shadow h-[280px]">
+          {/* Dark Card - ZenType */}
+          <Link to="/zentyping" className="bg-[#111] rounded-[2.5rem] p-8 text-[#F4F0EA] relative overflow-hidden flex flex-col justify-between group cursor-pointer hover:shadow-2xl transition-shadow h-[280px]">
             <div className="absolute inset-0 opacity-40 flex items-center justify-center pointer-events-none">
               <div className="w-[120%] h-full flex items-center justify-center gap-3 rotate-[-10deg] scale-125">
                 {[...Array(12)].map((_, i) => (
@@ -116,18 +124,18 @@ export const Home = () => {
               </div>
             </div>
             <div className="relative z-10 bg-white/10 w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md">
-              <Monitor className="w-6 h-6" strokeWidth={1.5} />
+              <Keyboard className="w-6 h-6" strokeWidth={1.5} />
             </div>
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold uppercase tracking-tighter mb-2">ZenShot</h3>
-              <p className="text-[11px] opacity-80 uppercase tracking-[0.2em]">Chụp ảnh Code</p>
+              <h3 className="text-3xl font-bold uppercase tracking-tighter mb-2">ZenType</h3>
+              <p className="text-[11px] opacity-80 uppercase tracking-[0.2em]">Code Typing Game</p>
             </div>
           </Link>
 
-          {/* Light Card - ZenMock */}
-          <div className="bg-white border border-[#111]/10 rounded-[2.5rem] p-8 relative overflow-hidden flex flex-col justify-between group h-[280px]">
+          {/* Light Card - ZenShot */}
+          <Link to="/zenshot" className="bg-white border border-[#111]/10 rounded-[2.5rem] p-8 relative overflow-hidden flex flex-col justify-between group h-[280px]">
             <div className="absolute top-6 right-6 bg-[#F4F0EA] px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em]">
-              Mới
+              Active
             </div>
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity">
               <div className="w-40 h-40 rounded-full border-[1px] border-[#111] flex items-center justify-center">
@@ -139,13 +147,13 @@ export const Home = () => {
               </div>
             </div>
             <div className="relative z-10 bg-[#F4F0EA] w-12 h-12 rounded-full flex items-center justify-center">
-              <ImageIcon className="w-6 h-6 text-[#111]" strokeWidth={1.5} />
+              <Monitor className="w-6 h-6 text-[#111]" strokeWidth={1.5} />
             </div>
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold uppercase tracking-tighter mb-2 text-[#111]">ZenMock</h3>
-              <p className="text-[11px] text-[#111]/60 uppercase tracking-[0.2em]">Mockup Thiết Bị</p>
+              <h3 className="text-3xl font-bold uppercase tracking-tighter mb-2 text-[#111]">ZenShot</h3>
+              <p className="text-[11px] text-[#111]/60 uppercase tracking-[0.2em]">Code Image Tool</p>
             </div>
-          </div>
+          </Link>
         </div>
 
       </div>

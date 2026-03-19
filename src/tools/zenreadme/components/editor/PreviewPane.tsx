@@ -39,20 +39,23 @@ export function PreviewPane({
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
-              code({ className, children, ...props }: any) {
+              code({ className, children, node, ...props }: any) {
                 const match = /language-(\w+)/.exec(className || '');
-                const isInline = !match;
-                return !isInline && match ? (
-                  <SyntaxHighlighter
-                    {...props}
-                    style={vscDarkPlus}
-                    language={match[1]}
-                    PreTag="div"
-                    className="rounded-xl !m-0 !bg-[#111] !p-6 text-[13px]"
-                  >
-                    {String(children).replace(/\n$/, '')}
-                  </SyntaxHighlighter>
-                ) : (
+                const isInline = node?.position?.start?.line === node?.position?.end?.line && !match;
+                if (!isInline) {
+                  return (
+                    <SyntaxHighlighter
+                      {...props}
+                      style={vscDarkPlus}
+                      language={match ? match[1] : 'text'}
+                      PreTag="div"
+                      className="rounded-xl !m-0 !bg-[#111] !p-6 text-[13px]"
+                    >
+                      {String(children).replace(/\n$/, '')}
+                    </SyntaxHighlighter>
+                  );
+                }
+                return (
                   <code {...props} className={className}>
                     {children}
                   </code>

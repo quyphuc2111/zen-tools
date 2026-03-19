@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Plus, Monitor, ImageIcon, FileText, LayoutTemplate, Keyboard } from 'lucide-react';
+import { ArrowRight, Plus, Monitor, ImageIcon, FileText, LayoutTemplate, Keyboard, Dices } from 'lucide-react';
 
 const TOOLS = [
   {
@@ -25,7 +25,7 @@ const TOOLS = [
     description: 'Tạo mockup thiết bị ấn tượng cho ảnh chụp màn hình ứng dụng của bạn.',
     icon: ImageIcon,
     path: '/zenmock',
-    comingSoon: true,
+    active: true,
   },
   {
     id: 'zenreadme',
@@ -33,6 +33,14 @@ const TOOLS = [
     description: 'Trình tạo file README.md chuyên nghiệp và tương tác cho dự án mã nguồn mở.',
     icon: FileText,
     path: '/zenreadme',
+    active: true,
+  },
+  {
+    id: 'zendom',
+    name: 'ZENDOM',
+    description: 'Quay số ngẫu nhiên với 5 chế độ: vòng quay, đua vịt, bốc thăm, slot, sinh tồn.',
+    icon: Dices,
+    path: '/zendom',
     active: true,
   }
 ];
@@ -73,18 +81,14 @@ export const Home = () => {
           {TOOLS.map((tool) => (
             <Link
               key={tool.id}
-              to={tool.comingSoon ? '#' : tool.path}
-              className={`flex items-center justify-between px-8 py-6 rounded-[2rem] border border-[#111] transition-all duration-300 ${
-                tool.active
-                  ? 'bg-[#111] text-[#F4F0EA] hover:scale-[1.02]'
-                  : 'bg-transparent hover:bg-[#E8E4D9]'
-              } ${tool.comingSoon ? 'opacity-50 cursor-not-allowed' : ''}`}
+              to={tool.path}
+              className={`flex items-center justify-between px-8 py-6 rounded-[2rem] border border-[#111] transition-all duration-300 bg-[#111] text-[#F4F0EA] hover:scale-[1.02]`}
             >
               <div className="flex flex-col gap-2">
                 <span className="text-[16px] font-bold uppercase tracking-[0.15em]">
-                  {tool.name} {tool.comingSoon ? '(SẮP RA MẮT)' : ''}
+                  {tool.name}
                 </span>
-                <span className={`text-[12px] max-w-[280px] leading-relaxed ${tool.active ? 'text-[#F4F0EA]/70' : 'text-[#111]/60'}`}>
+                <span className="text-[12px] max-w-[280px] leading-relaxed text-[#F4F0EA]/70">
                   {tool.description}
                 </span>
               </div>
